@@ -17,6 +17,8 @@ const Landing = () => {
         setModalOpen(false);
     };
 
+    const [datas, setData] = useState({});
+
     return (
         <>
             <div className='flex bg-yellow-100'>
@@ -26,10 +28,10 @@ const Landing = () => {
                     <button className='bg-yellow-500 text-green-950 p-1 mr-7 ' onClick={openModal}>Post job</button>
                 </div>
             </div>
-            {/* //{isModalOpen && <JobModal1 onClose={closeModal} open={isModalOpen}/>} */}
-            {/* {isModalOpen && <AddJob onClose={closeModal} open={isModalOpen} />} */}
-            {/* {isModalOpen && <JobDesModal onClose={closeModal} open={isModalOpen}/>} */}
-            {isModalOpen && <IntProcesModal onClose={closeModal} open={isModalOpen} />}
+            {/* //{isModalOpen && <JobModal1  onClose={closeModal} open={isModalOpen}/>} */}
+            {/* {isModalOpen && <AddJob datas = {datas} setData = {setData} onClose={closeModal} open={isModalOpen} />} */}
+            {isModalOpen && <JobDesModal datas = {datas} setData = {setData} onClose={closeModal} open={isModalOpen}/>}
+            {/* {isModalOpen && <IntProcesModal data = {datas} setData = {setData} onClose={closeModal} open={isModalOpen} />} */}
         </>
     )
 }
