@@ -6,7 +6,7 @@ import GreenTick from '../../assets/Vector.png'
 import IntProcesModal from './IntProcesModal';
 
 
-const JobDesModal = ({ open, Close }) => {
+const JobDesModal = ({ open, Close, setThirdModalOpen, setFourthModalOpen }) => {
 
     const [isModalOpen, SetModelOpen] = useState(false);
 
@@ -15,7 +15,8 @@ const JobDesModal = ({ open, Close }) => {
     };
 
     const handleNextClick = () => {
-       SetModelOpen(true)
+        setFourthModalOpen(true);
+       setThirdModalOpen(false)
     }
 
     return (
@@ -90,7 +91,6 @@ const JobDesModal = ({ open, Close }) => {
                     </div>
                 </div>
             </Modal>
-            {isModalOpen && <IntProcesModal open={isModalOpen} Close={closeModal}/>}
         </div>
     )
 }

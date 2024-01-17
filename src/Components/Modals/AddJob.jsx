@@ -4,7 +4,7 @@ import cancel from "../../assets/cancel.png";
 import { useForm } from "react-hook-form";
 import JobDesModal from "./JobDesModal";
 
-const AddJob = ({ open, Close, datas, setData }) => {
+const AddJob = ({ open, Close, datas, setData, setThirdModalOpen, setSecondModalOpen }) => {
 
   const [isModalOpen,SetModelOpen] = useState(false);
 
@@ -20,12 +20,13 @@ const AddJob = ({ open, Close, datas, setData }) => {
   };
 
   const onSubmit = (data) => {
-    //   console.log(data);
-    setData({ ...datas }, { stepII: data });
+      console.log(data);
+    // setData({ ...datas }, { stepII: data });
   };
 
   const handleNextClick = () => {
-   SetModelOpen(true)
+    setSecondModalOpen(false)
+    setThirdModalOpen(true)
   }
 
   const feilds = [
@@ -137,7 +138,6 @@ const AddJob = ({ open, Close, datas, setData }) => {
         </div>
       </Modal>
 
-      {isModalOpen && <JobDesModal open={isModalOpen} Close={closeModal}/>}
     </div>
 
   );

@@ -6,7 +6,7 @@ import AddJob from './AddJob';
 import JobDesModal from './JobDesModal';
 import { Modal } from '@mui/material';
 
-const JobModal1 = ({ open, closeModal }) => {
+const JobModal1 = ({ open, closeModal, setSecondModalOpen, setFirstModalOpen }) => {
 
     const[isModalOpen,setModalOpen] = useState(false);
  
@@ -15,7 +15,8 @@ const JobModal1 = ({ open, closeModal }) => {
     }
 
     const handleNextModalClick = () => {
-        setModalOpen(true);
+        setSecondModalOpen(true);
+        setFirstModalOpen(false)
         // closeModal();
     }
      
@@ -37,7 +38,6 @@ const JobModal1 = ({ open, closeModal }) => {
                     </div>
                 </div>
             </Modal>
-            {isModalOpen && <AddJob open={isModalOpen} Close={close}/>}
         </>
     );
 }

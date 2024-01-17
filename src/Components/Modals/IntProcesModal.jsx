@@ -4,9 +4,10 @@ import cancel from '../../assets/cancel.png';
 import GreenTick from '../../assets/Vector.png';
 import arrow from '../../assets/downArrow.png'
 
-const IntProcesModal = ({ open, onClose }) => {
+const IntProcesModal = ({ open, onClose, setFourthModalOpen }) => {
     const closeModal = () => {
-        onClose(); // Close the JobModal1
+        // onClose(); // Close the JobModal1
+        setFourthModalOpen(false)
     };
 
     const [rounds, setRounds] = useState([

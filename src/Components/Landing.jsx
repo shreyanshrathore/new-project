@@ -11,14 +11,17 @@ import dp from '../assets/Rectangle 40860.png'
 import { Switch } from '@mui/material';
 
 const Landing = () => {
-    const [isModalOpen, setModalOpen] = useState(false);
+    const [isFirstModalOpen, setFirstModalOpen] = useState(false);
+    const [isSecondModalOpen, setSecondModalOpen] = useState(false);
+    const [isThirdModalOpen, setThirdModalOpen] = useState(false);
+    const [isFourthModalOpen, setFourthModalOpen] = useState(false);
 
     const openModal = () => {
-        setModalOpen(true);
+        setFirstModalOpen(true);
     };
 
     const closeModal = () => {
-        setModalOpen(false);
+        setFirstModalOpen(false);
     };
 
     return (
@@ -76,7 +79,11 @@ const Landing = () => {
                     </div>
                 </div>
             </div>
-            {isModalOpen && <JobModal1 closeModal={closeModal} open={isModalOpen} />}
+            {isFirstModalOpen && <JobModal1 closeModal={closeModal} setSecondModalOpen = {setSecondModalOpen} setFirstModalOpen = {setFirstModalOpen} open={isFirstModalOpen} />}
+            {isSecondModalOpen && <AddJob open={isSecondModalOpen} setThirdModalOpen = {setThirdModalOpen} setSecondModalOpen = {setSecondModalOpen} Close={()=>setSecondModalOpen(false)}/>}
+            {isThirdModalOpen && <JobDesModal open={isThirdModalOpen} setThirdModalOpen = {setThirdModalOpen} setFourthModalOpen = {setFourthModalOpen} Close={()=>setThirdModalOpen(false)}/>}
+            {isFourthModalOpen && <IntProcesModal open={isFourthModalOpen} Close={()=>setFourthModalOpen(false)} setFourthModalOpen = {setFourthModalOpen}/>}
+
         </>
     )
 }
