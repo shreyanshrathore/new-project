@@ -16,6 +16,8 @@ const Landing = () => {
     const [isThirdModalOpen, setThirdModalOpen] = useState(false);
     const [isFourthModalOpen, setFourthModalOpen] = useState(false);
 
+    const [data, setData] = useState({});
+
     const openModal = () => {
         setFirstModalOpen(true);
     };
@@ -79,10 +81,10 @@ const Landing = () => {
                     </div>
                 </div>
             </div>
-            {isFirstModalOpen && <JobModal1 closeModal={closeModal} setSecondModalOpen = {setSecondModalOpen} setFirstModalOpen = {setFirstModalOpen} open={isFirstModalOpen} />}
-            {isSecondModalOpen && <AddJob open={isSecondModalOpen} setThirdModalOpen = {setThirdModalOpen} setSecondModalOpen = {setSecondModalOpen} Close={()=>setSecondModalOpen(false)}/>}
-            {isThirdModalOpen && <JobDesModal open={isThirdModalOpen} setThirdModalOpen = {setThirdModalOpen} setFourthModalOpen = {setFourthModalOpen} Close={()=>setThirdModalOpen(false)}/>}
-            {isFourthModalOpen && <IntProcesModal open={isFourthModalOpen} Close={()=>setFourthModalOpen(false)} setFourthModalOpen = {setFourthModalOpen}/>}
+            {isFirstModalOpen && <JobModal1 closeModal={closeModal} setSecondModalOpen = {setSecondModalOpen} setFirstModalOpen = {setFirstModalOpen} open={isFirstModalOpen} setData = {setData}/>}
+            {isSecondModalOpen && <AddJob open={isSecondModalOpen} setThirdModalOpen = {setThirdModalOpen} setSecondModalOpen = {setSecondModalOpen} Close={()=>setSecondModalOpen(false)} datas = {data} setData= {setData}/>}
+            {isThirdModalOpen && <JobDesModal open={isThirdModalOpen} setThirdModalOpen = {setThirdModalOpen} setFourthModalOpen = {setFourthModalOpen} Close={()=>setThirdModalOpen(false)} datas = {data} setData= {setData}/>}
+            {isFourthModalOpen && <IntProcesModal open={isFourthModalOpen} Close={()=>setFourthModalOpen(false)} setFourthModalOpen = {setFourthModalOpen} data = {data} setData= {setData}/>}
 
         </>
     )

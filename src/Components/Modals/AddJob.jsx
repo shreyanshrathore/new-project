@@ -4,7 +4,7 @@ import cancel from "../../assets/cancel.png";
 import { useForm } from "react-hook-form";
 import JobDesModal from "./JobDesModal";
 
-const AddJob = ({ open, Close, datas, setData, setThirdModalOpen, setSecondModalOpen }) => {
+const AddJob = ({ open, Close, setThirdModalOpen, setSecondModalOpen, datas, setData }) => {
 
   const [isModalOpen,SetModelOpen] = useState(false);
 
@@ -20,14 +20,13 @@ const AddJob = ({ open, Close, datas, setData, setThirdModalOpen, setSecondModal
   };
 
   const onSubmit = (data) => {
-      console.log(data);
-    // setData({ ...datas }, { stepII: data });
+    setData({ form1: data });
+      console.log(datas)
+      setSecondModalOpen(false)
+      setThirdModalOpen(true)  
   };
 
-  const handleNextClick = () => {
-    setSecondModalOpen(false)
-    setThirdModalOpen(true)
-  }
+  
 
   const feilds = [
     {
@@ -121,7 +120,7 @@ const AddJob = ({ open, Close, datas, setData, setThirdModalOpen, setSecondModal
           </div>
 
           {/* form */}
-          <form className="  mt-4 sm:mt-9 w-4/4 ml-12 mr-12" onSubmit={handleSubmit(onSubmit)}>
+          <form  onSubmit={handleSubmit(onSubmit)}>
             <div className="grid grid-cols-2 ml-14 gap-x-11 w-[80%]">
               {feilds.map((item) => (
                 <FormFeild key={item.label} label={item.label} value={item.value} />
@@ -129,7 +128,7 @@ const AddJob = ({ open, Close, datas, setData, setThirdModalOpen, setSecondModal
             </div>
 
             <div className="flex justify-center">
-              <button onClick={handleNextClick} className="w-[35%] md:w-[28%] xl:w-[25%] 2xl:w-[22%] h-12 bg-black rounded-lg mt-4 sm:mt-[2rem] ml-0 sm:ml-[2rem] mb-4 cursor-pointer">
+              <button type="submit" className="w-[35%] md:w-[28%] xl:w-[25%] 2xl:w-[22%] h-12 bg-black rounded-lg mt-4 sm:mt-[2rem] ml-0 sm:ml-[2rem] mb-4 cursor-pointer">
                 <p className="text-white text-lg font-medium font-Poppins">Save & Next</p>
               </button>
             </div>
